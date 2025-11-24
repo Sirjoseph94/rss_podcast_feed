@@ -17,7 +17,7 @@ jobs:
 
     - name: Fetch RSS from Apps Script
       run: |
-        curl -s "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjpFnA_E_LRr83WRrH3aBkq7zT-zi0u-tC2HezAuoQKiaWtFsxaqR8TuQsY8a9q1K2kXcR7VUiu7M0P7B6jExxsOsKDtFBuS0L5zoVSde_WpactFjBwHkzJhPfr7OryiUpEZYAqvwKqAZ7kIMF3xWyA3BerUAi9JtByRvSg577dAj0ZXNcudY-i2ITmdwCBkWl8yizuZzr2GwFQEHrGFskWgJdq4kqt9Ni8MlIA0SjnZuo3DyIVBsxMbq7Cmr3CcAcdTx4EqSEOroirEgGlOgC3zizjvnppMNi357AZ&lib=MypX96_10XtSTD1Klbkvub5ceetbp1-O1" -o rss_feed.xml
+        curl -s "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjXp2iGEJWgvojEz7jP_nrLfGsrcwjFw6uswfLQqSZkX5bL8HHsDr6fPvN8pRLSb9wg69XOvalO9-Ki_pVnjkjtbKZavND_G-ybzTwswtLk8y8LVh-2aCzcZB0NPrg24IR_sWbo4PH10gMGHFtM2pETP5g8JMLlM6sx3TgsLU88hdCPq2hAZAKh95jkvTqwRXwCmhBDEieKHS6A1PZmUSreXDW8MckYOyIYVH4Qbj0_Y-DnaUYhOvleZvoVZFpSsADMusL0oWYi9DMgmL6Y1t1IJhFYeITttyuRdvbC&lib=MypX96_10XtSTD1Klbkvub5ceetbp1-O1" -o rss_feed.xml
 
     - name: Commit updated feed
       run: |
