@@ -1,0 +1,28 @@
+# .github/workflows/update-feed.yml
+
+name: Update Podcast RSS
+
+on:
+  schedule:
+    - cron: '0 21 * * 1'  # every monday by 10pm, 
+  workflow_dispatch:      # also allow manual triggering
+
+jobs:
+  update-rss:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Fetch RSS from Apps Script
+      run: |
+        curl -s "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjpFnA_E_LRr83WRrH3aBkq7zT-zi0u-tC2HezAuoQKiaWtFsxaqR8TuQsY8a9q1K2kXcR7VUiu7M0P7B6jExxsOsKDtFBuS0L5zoVSde_WpactFjBwHkzJhPfr7OryiUpEZYAqvwKqAZ7kIMF3xWyA3BerUAi9JtByRvSg577dAj0ZXNcudY-i2ITmdwCBkWl8yizuZzr2GwFQEHrGFskWgJdq4kqt9Ni8MlIA0SjnZuo3DyIVBsxMbq7Cmr3CcAcdTx4EqSEOroirEgGlOgC3zizjvnppMNi357AZ&lib=MypX96_10XtSTD1Klbkvub5ceetbp1-O1" -o rss_feed.xml
+
+    - name: Commit updated feed
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add rss_feed.xml
+        git commit -m "Update RSS feed" || echo "No changes to commit"
+        git push
